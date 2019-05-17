@@ -18,7 +18,7 @@
             app:show_timeout="2000"
             app:controller_layout_id="@layout/exo_playback_control_view"
             android:layout_height="0dp"
-            app:resize_mode="fill"/>
+            app:resize_mode="zoom"/>
 
     <com.exozet.android.core.ui.custom.SwipeDistanceView
             android:id="@+id/swipe_detector"
