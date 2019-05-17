@@ -101,10 +101,12 @@ dependencies {
     implementation libs.constraintLayout
     implementation libs.androidKtx
 
-    implementation libs.rx2java
     implementation libs.rx2Android
+    implementation libs.rx2Kotlin
 
-    implementation (libs.exozetCore)
+    implementation libs.exozetCore
+    implementation libs.logger
+    implementation libs.exoplayer
 
     implementation project(':fastexoplayerseeker')
 }

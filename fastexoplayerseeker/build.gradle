@@ -79,6 +79,11 @@ dependencies {
     implementation libs.appCompatResources
     implementation libs.supportAnnotations
     implementation libs.androidKtx
+
+    compileOnly libs.exoplayer
+
+    implementation libs.rx2Android
+    implementation libs.rx2Kotlin
 }
 
 configurations.all {
