@@ -1,5 +1,5 @@
 [![Donation](https://img.shields.io/badge/buy%20me%20a%20beer-brightgreen.svg)](https://www.paypal.me/janrabe/5) [![About Jan Rabe](https://img.shields.io/badge/about-me-green.svg)](https://about.me/janrabe)
-# FastExoSeeker [![](https://jitpack.io/v/kibotu/FastExoSeeker.svg)](https://jitpack.io/#kibotu/FastExoSeeker) [![](https://jitpack.io/v/kibotu/FastExoSeeker/month.svg)](https://jitpack.io/#kibotu/FastExoSeeker) [![Javadoc](https://img.shields.io/badge/javadoc-SNAPSHOT-green.svg)](https://jitpack.io/com/github/kibotu/FastExoSeeker/master-SNAPSHOT/javadoc/index.html) [![Build Status](https://travis-ci.org/kibotu/FastExoSeeker.svg?branch=master)](https://travis-ci.org/kibotu/FastExoSeeker) [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=15)  [![Gradle Version](https://img.shields.io/badge/gradle-5.4.1-green.svg)](https://docs.gradle.org/current/release-notes) [![kotlin](https://img.shields.io/badge/kotlin-1.3.31-green.svg)](https://kotlinlang.org/) [![Licence](https://img.shields.io/badge/licence-Apache%202-blue.svg)](https://raw.githubusercontent.com/kibotu/FastExoSeeker/master/LICENSE) [![androidx](https://img.shields.io/badge/androidx-brightgreen.svg)](https://developer.android.com/topic/libraries/support-library/refactor)
+# FastExoPlayerSeeker [![](https://jitpack.io/v/kibotu/FastExoPlayerSeeker.svg)](https://jitpack.io/#kibotu/FastExoPlayerSeeker) [![](https://jitpack.io/v/kibotu/FastExoPlayerSeeker/month.svg)](https://jitpack.io/#kibotu/FastExoPlayerSeeker) [![Javadoc](https://img.shields.io/badge/javadoc-SNAPSHOT-green.svg)](https://jitpack.io/com/github/kibotu/FastExoPlayerSeeker/master-SNAPSHOT/javadoc/index.html) [![Build Status](https://travis-ci.org/kibotu/FastExoPlayerSeeker.svg?branch=master)](https://travis-ci.org/kibotu/FastExoPlayerSeeker) [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=15)  [![Gradle Version](https://img.shields.io/badge/gradle-5.4.1-green.svg)](https://docs.gradle.org/current/release-notes) [![kotlin](https://img.shields.io/badge/kotlin-1.3.31-green.svg)](https://kotlinlang.org/) [![Licence](https://img.shields.io/badge/licence-Apache%202-blue.svg)](https://raw.githubusercontent.com/kibotu/FastExoPlayerSeeker/master/LICENSE) [![androidx](https://img.shields.io/badge/androidx-brightgreen.svg)](https://developer.android.com/topic/libraries/support-library/refactor)
 
 ## Introduction
 
@@ -16,7 +16,7 @@ Adds fast seeking for exoplayer. (Note: it also depends on the amount of video e
     }
 
     dependencies {
-        implementation 'com.github.kibotu:StreamingFastExoSeeker:-SNAPSHOT'
+        implementation 'com.github.kibotu:StreamingFastExoPlayerSeeker:-SNAPSHOT'
     }
 
 ## How to use
