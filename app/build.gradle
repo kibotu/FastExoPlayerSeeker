@@ -1,34 +1,122 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.getkeepsafe.dexcount'
 
 android {
-    compileSdkVersion 28
+
+    compileSdkVersion compileSdkVer
+    buildToolsVersion buildToolsVer
+
     defaultConfig {
+        multiDexEnabled true
         applicationId "net.kibotu.fastexoplayerseeker.demo"
-        minSdkVersion 15
-        targetSdkVersion 28
+        minSdkVersion minSdkVer
+        targetSdkVersion targetSdkVer
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // region build types
+
     buildTypes {
-        release {
+
+        debug {
+            applicationIdSuffix ""
+            pseudoLocalesEnabled true
+            debuggable true
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            crunchPngs false
+            shrinkResources false
+            zipAlignEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            ext.alwaysUpdateBuildId = false
+        }
+
+        release {
+            pseudoLocalesEnabled false
+            debuggable false
+            minifyEnabled true
+            crunchPngs true
+            shrinkResources true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // endregion
+
+    // region lint options
+
+    lintOptions {
+        disable 'InvalidPackage'
+        abortOnError false        // true by default
+        checkAllWarnings false
+        checkReleaseBuilds false
+        ignoreWarnings true       // false by default
+        quiet true                // false by default
+    }
+
+    // endregion
+
+    // region dex options
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+        maxProcessCount 8
+    }
+
+    // endregion
+
+    // region adb options
+
+    adbOptions {
+        timeOutInMs 10 * 60 * 1000 // 10 minutes
+    }
+
+    // endregion
+
+    // region exclude duplicated meta inf files
+
+    packagingOptions {
+        exclude 'META-INF/library-core_release.kotlin_module'
+    }
+
+    // endregion
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    implementation libs.kotlinJdk8
+    implementation libs.supportMultidex
+    implementation libs.supportAppCompat
+    implementation libs.appCompatResources
+    implementation libs.constraintLayout
+    implementation libs.androidKtx
+
+    implementation libs.rx2java
+    implementation libs.rx2Android
+
+    implementation (libs.exozetCore)
+
+    implementation project(':fastexoplayerseeker')
 }
+
+// region override support library version
+
+configurations.all {
+    resolutionStrategy.cacheDynamicVersionsFor 10, 'minutes'
+    resolutionStrategy.force libs.kotlinJdk8
+    resolutionStrategy.force libs.supportAppCompat
+    resolutionStrategy.force libs.appCompatResources
+    resolutionStrategy.force libs.constraintLayout
+}
+
+// endregion
