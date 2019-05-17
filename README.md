@@ -16,7 +16,7 @@ Adds fast seeking for exoplayer. (Note: it also depends on the amount of video e
     }
 
     dependencies {
-        implementation 'com.github.kibotu:StreamingFastExoPlayerSeeker:-SNAPSHOT'
+        implementation 'com.github.kibotu:FastExoPlayerSeeker:-SNAPSHOT'
     }
 
 ## How to use
