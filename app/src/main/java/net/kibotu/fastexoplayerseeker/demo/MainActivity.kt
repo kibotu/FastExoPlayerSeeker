@@ -58,6 +58,8 @@ class MainActivity : AppCompatActivity() {
 
 //        initPlayer("walkaround.mp4".parseAssetFile())
         // ffmpeg -i walkaround -c:v libx264 -profile:v baseline -level 3.0 -x264opts keyint=10:min-keyint=10 -g 10 -movflags +faststart+rtphint -maxrate:v 3000k -bufsize:v 3500k walkaround_with_additional_iframes.mp4
+
+//        initPlayer(Uri.parse("/sdcard/Download/output_1566211269610.mp4"))
         initPlayer("walkaround_with_additional_iframes.mp4".parseAssetFile())
         initSwipeControls()
     }
