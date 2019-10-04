@@ -9,30 +9,36 @@ Adds fast seeking for exoplayer. (Note: it also depends on the amount of video e
 
 ## How to install
 
-    repositories {
-        maven {
-            url "https://jitpack.io"
-        }
+```groovy
+repositories {
+    maven {
+        url "https://jitpack.io"
     }
+}
 
-    dependencies {
-        implementation 'com.github.kibotu:FastExoPlayerSeeker:-SNAPSHOT'
-    }
+dependencies {
+    implementation 'com.github.kibotu:FastExoPlayerSeeker:-SNAPSHOT'
+}
+```
 
 ## How to use
 
 ### Create Emitter
 
-    val emitter = SeekPositionEmitter()
-    emitter.seekFast(newSeekPosition)
+```kotlin
+val emitter = SeekPositionEmitter()
+emitter.seekFast(newSeekPosition)
+```
 
 ### Create Observable
 
-    simpleExoPlayer.seekWhenReady(emitter)
-        .subscribe({
-            logv("seekTo=${it.first} isSeeking=${it.second}")
-        }, { loge("${it.message}") })
-        .addTo(subscriptions) // don't forget to dispose when you're done!
+```kotlin
+simpleExoPlayer.seekWhenReady(emitter)
+    .subscribe({
+        logv("seekTo=${it.first} isSeeking=${it.second}")
+    }, { loge("${it.message}") })
+    .addTo(subscriptions) // don't forget to dispose when you're done!
+```
 
 ### FFMpeg
 
@@ -62,7 +68,6 @@ I've had good results increasing the amount if IDR frames using the following sc
     #  -keyint_min E..V…. minimum interval between IDR-frames (from INT_MIN to INT_MAX) (default 25)
     ffmpeg -i inputvide.mp4 -c:v libx264 -profile:v baseline -level 3.0 -x264opts keyint=10:min-keyint=10 -g 10 -movflags +faststart+rtphint -maxrate:v 4000k -bufsize:v 4500k outputvideo.mp4
 
-
 ## How to build
 
     graldew clean build
@@ -74,12 +79,16 @@ I've had good results increasing the amount if IDR frames using the following sc
 #### Build Requirements
 
 - JDK8
-- Android Build Tools 28.0.3
-- Android SDK 28
+- Android Build Tools 29.0.2
+- Android SDK 29
 
-## Contributors
+### Notes
 
-- [Jan Rabe](jan.rabe@kibotu.net)
+Follow me on Twitter: [@wolkenschauer](https://twitter.com/wolkenschauer)
+
+Let me know what you think: [jan.rabe@kibotu.net](mailto:jan.rabe@kibotu.net)
+
+Contributions welcome!
 
 ### License
 
